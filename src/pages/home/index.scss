@@ -1,0 +1,92 @@
+
+.detail{
+    .detail-content{
+        margin-bottom: 120rpx;
+        justify-content: center;
+        padding: 20rpx;
+        font-size: 28rpx;
+        color: #999999;
+        display: flex;
+        flex-direction: column;
+    }
+    .title{
+        color: black;
+        font-weight: 600;
+        font-size: 36px;
+    }
+    .tabC{
+        background-color: #E4E4E4;
+        border-radius: 10rpx;
+        padding: 5rpx 15rpx;
+        margin-bottom: 20rpx;
+    }
+    .tab{
+        color: grey;
+    }
+    image{
+        width: 100%;
+    }
+    text{
+        text-align: start;
+        margin: 30rpx 0;
+    }
+    .footer-fixed-area {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding:16rpx 20rpx;
+        background-color: #FFFFFF;
+        z-index: 5;
+        box-shadow:0 0 24rpx 0 rgba(0,0,0,0.08);
+    }
+    .footer-button {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 34rpx;
+        border: 1rpx solid #999;
+        z-index: 5;
+        flex-grow: 1;
+        flex-shrink: 1;
+        //background: linear-gradient(180deg, #1890FF 0%, #1890FF 100%);
+        //box-shadow: 0rpx 20rpx 60rpx 0rpx #1890FF;
+        border-radius: 50rpx;
+        font-weight: 700;
+        color: #999;
+        height: 88rpx;
+        &.empty {
+            border: solid 1px #1890FF;
+            background: #FFFFFF;
+            color: #1890FF;
+            box-shadow: none;
+        }
+        &.weak{
+            border: 0;
+            background: #FFFFFF;
+            color: #1890FF;
+            box-shadow: none;
+            background: unset;
+        }
+        margin-right: 30rpx;
+        &:nth-last-child(1){
+            margin-right: 0;
+        }
+        &.multiline{
+            .main-text{
+                font-size: 32rpx;
+                font-weight: 700;
+                line-height: 44rpx;
+            }
+            .extra-text{
+                font-size: 24rpx;
+                font-weight: 400;
+                line-height: 34rpx;
+            }
+        }
+    }
+}

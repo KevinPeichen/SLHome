@@ -1,0 +1,74 @@
+@import "~taro-ui/dist/style/components/tabs.scss";
+page{
+    width: 100%;
+    overflow-y: hidden;
+    background-color: #FAFBFC;
+}
+.index{
+    background-color: #FAFBFC;
+
+    width: 100%;
+
+    .head{
+        height: 300rpx;
+        margin: 20rpx;
+        .test-h{
+            height: 300rpx;
+        }
+        .demo-text{
+            border-radius: 20rpx;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 300rpx;
+        }
+        .demo-img{
+            border-radius: 20rpx;
+        }
+        .d-1{
+            border-radius: 20rpx;
+        }
+        .d-2{
+            border-radius: 20rpx;
+        }
+        .d-3{
+            border-radius: 20rpx;
+        }
+    }
+    .content{
+        background-color: #E4E4E4;
+        .srollview{
+
+        }
+    }
+    .at-tabs{
+        height: auto;
+    }
+    .card{
+        margin: 20rpx 0;
+        display: flex;
+        flex-direction: column;
+        .card-item{
+            margin-bottom: 20rpx;
+            display: flex;
+            justify-content: space-around;
+            .card-order{
+                display: flex;
+                flex-direction: column;
+                .order-img{
+                    border-top-left-radius: 10rpx;
+                    border-top-right-radius: 10rpx;
+                    background: red;
+                }
+                .card-order-text{
+                    padding: 10rpx;
+                    font-size: 28rpx;
+                    color: #999999;
+                    //height: 60rpx;
+                     background-color: #ffffff;
+                }
+            }
+        }
+    }
+
+}

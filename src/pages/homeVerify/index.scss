@@ -1,0 +1,42 @@
+.home-com-desc{
+    .desc{
+        display: flex;
+        flex-direction: column;
+        background-color: #fff;
+        margin: 20rpx;
+        padding: 20rpx 40rpx;
+        border-radius: 20rpx;
+        color: #333333;
+        font-size: 36rpx;
+        .item{
+            .item-h{
+                font-size: 32rpx;
+                color: #999999;
+            }
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20rpx;
+            text{
+                margin-bottom: 20rpx;
+            }
+            .footer-button{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                font-size: 34rpx;
+                border: 1rpx solid #1890FF;
+                z-index: 5;
+                flex-grow: 1;
+                flex-shrink: 1;
+                background: linear-gradient(180deg, #1890FF 0%, #1890FF 100%);
+                box-shadow: 0rpx 20rpx 30rpx 0rpx #1890FF;
+                border-radius: 50rpx;
+                font-weight: 700;
+                color: #fff;
+                height: 88rpx;
+            }
+        }
+
+    }
+}
