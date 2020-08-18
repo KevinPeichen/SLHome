@@ -1,3 +1,3 @@
 export default {
-  navigationBarTitleText: '公司介绍'
+  navigationBarTitleText: '验房预约'
 }

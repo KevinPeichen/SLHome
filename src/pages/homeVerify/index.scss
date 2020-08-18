@@ -1,4 +1,22 @@
+@import "~taro-ui/dist/style/components/divider.scss";
+@import "~taro-ui/dist/style/components/icon.scss";
+
 .home-com-desc{
+    .ps{
+        background-color: #fcf6ed !important;
+        color: #de8c17 !important;
+        .item{
+            margin-bottom:0 !important;
+        }
+    }
+    .desc-img{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        image{
+            width: 100%;
+        }
+    }
     .desc{
         display: flex;
         flex-direction: column;
@@ -19,24 +37,39 @@
             text{
                 margin-bottom: 20rpx;
             }
-            .footer-button{
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                font-size: 34rpx;
-                border: 1rpx solid #1890FF;
-                z-index: 5;
-                flex-grow: 1;
-                flex-shrink: 1;
-                background: linear-gradient(180deg, #1890FF 0%, #1890FF 100%);
-                box-shadow: 0rpx 20rpx 30rpx 0rpx #1890FF;
-                border-radius: 50rpx;
-                font-weight: 700;
-                color: #fff;
-                height: 88rpx;
-            }
         }
 
+    }
+    .footer-fixed-area {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding:16rpx 20rpx;
+        background-color: #FFFFFF;
+        z-index: 5;
+        box-shadow:0 0 24rpx 0 rgba(0,0,0,0.08);
+    }
+    .footer-button {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 34rpx;
+        border: 1rpx solid #48D1CC;
+        z-index: 5;
+        flex-grow: 1;
+        flex-shrink: 1;
+        //background: linear-gradient(180deg, #1890FF 0%, #1890FF 100%);
+        //box-shadow: 0rpx 10rpx 10rpx 0rpx #48D1CC;
+        border-radius: 50rpx;
+        font-weight: 700;
+        color: #48D1CC;
+        height: 88rpx;
+
+        margin-right: 30rpx;
     }
 }

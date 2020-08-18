@@ -1,140 +1,91 @@
 import React, { Component } from 'react'
-import { View, Text, ScrollView, Swiper, SwiperItem,Image } from '@tarojs/components'
-import { AtTabs, AtTabsPane } from 'taro-ui'
+import Taro from '@tarojs/taro'
+import { getCurrentInstance } from '@tarojs/taro'
+import cardList from '../../assets/constant.jsx';
+import { View, Text, Image, Button } from '@tarojs/components'
 import './index.scss'
 
-export default class Index extends Component {
+export default class Detail extends Component {
     constructor () {
         super();
+        this.imgList = [];
         this.state = {
             current: 0,
+            json:{}
         }
     }
-    handleClick (value) {
+    componentWillMount() {
+        Taro.showShareMenu({
+            withShareTicket: true
+        });
+        this.imgList = [];
+        let p = getCurrentInstance().router.params;
         this.setState({
-            current: value
+            json:{...cardList[p.x][p.y][p.z]}
+        })
+    }
+    previewImage = (src)=>{
+        console.log(src);
+        wx.previewImage({
+            current: src, // 当前显示图片的http链接
+            urls: this.imgList // 需要预览的图片http链接列表
+        })
+    };
+    phone = () => {
+        wx.makePhoneCall({
+
+            phoneNumber: '18874731188',
+
         })
     }
 
+
     render () {
-        const tabList = [{ title: '小户型' }, { title: '大户型' }, { title: '豪华' }]
+        const {json} = this.state;
+        let mPicUrl = json.pic.dir+json.index+'/1'+json.pic.type;
+        this.imgList.push('https://'+mPicUrl);
+        let jsxs=[];
+        for(let i=2; i<=json.pic.total; i++){
+            let picUrl = json.pic.dir+json.index+'/'+i+json.pic.type;
+            this.imgList.push('https://'+picUrl);
+            jsxs.push((<Image lazyLoad={true} mode='widthFix' onClick={this.previewImage.bind(this,'https://'+picUrl)} src={picUrl} />));
+        }
+        let j = json.content.map((c,i)=>{
+            let jsx = (<Text>{c}</Text>);
+            return (
+                <>
+                    {jsx}
+                    {jsxs[i]}
+                </>
+            )
+        });
+        if(j.length < jsxs.length){
+            for(let i = j.length; jsxs.length > j.length; i++){
+                j.push(jsxs[i]);
+            }
+        }
+
         return (
-            <View className='index'>
-                <View className='head'>
-                    <Swiper
-                        className='test-h'
-                        indicatorColor='#999'
-                        indicatorActiveColor='#333'
-                        vertical={false}
-                        circular
-                        indicatorDots
-                        autoplay>
-                        <SwiperItem>
-                            <View className='demo-text d-1'>
-                                <Image className='demo-img' style='height:100%' src='//qniyong.oss-cn-hangzhou.aliyuncs.com/1688/web/img/cyb/b2.png'/>
-                            </View>
-                        </SwiperItem>
-                        <SwiperItem>
-                            <View className='demo-text d-2'>
-                                <Image className='demo-img' style='height:100%' src='//qniyong.oss-cn-hangzhou.aliyuncs.com/1688/web/img/cyb/b4.png'/>
-                            </View>
-                        </SwiperItem>
-                        <SwiperItem>
-                            <View className='demo-text d-3'>
-                                <Image className='demo-img' style='height:100%' src='//qniyong.oss-cn-hangzhou.aliyuncs.com/1688/web/img/cyb/b3.png'/>
-                            </View>
-                        </SwiperItem>
-                    </Swiper>
+            <View className='detail'>
+                <View className='detail-content'>
+                    <Text className='title'>
+                        {json.title}
+                    </Text>
+                    <View className='tabC'>
+                        <Text className='tab'>{json.tab}</Text>
+                    </View>
+                    <Image mode='widthFix' onClick={this.previewImage.bind(this,'https://'+mPicUrl)} src={mPicUrl}/>
+                    {
+                        j.map(c=>{
+                            return c;
+                        })
+                    }
                 </View>
-                <View className="content">
-                    <AtTabs className='at-tabs' current={this.state.current} tabList={tabList} onClick={this.handleClick.bind(this)}>
-                        <AtTabsPane current={this.state.current} index={0} >
-                            <ScrollView
-                                className='srollview'
-                                style={{height: "650rpx"}}
-                                scrollY={true}
-                                scrollTop={0}
-                            >
-                                <View className='card'>
-                                    <View className='card-item'>
-                                        <View className='card-order'>
-                                            <Image
-                                                className='order-img'
-                                                style='width: 300rpx;height: 100px;'
-                                                src='//qniyong.oss-cn-hangzhou.aliyuncs.com/1688/web/img/cyb/f1.png'
-                                            />
-                                            <View className='card-order-text'>
-                                                <Text>小户型日式风格</Text>
-                                            </View>
-                                        </View>
-                                        <View className='card-order'>
-                                            <Image
-                                                className='order-img'
-                                                style='width: 300rpx;height: 100px;'
-                                                src='//qniyong.oss-cn-hangzhou.aliyuncs.com/1688/web/img/cyb/f1.png'
-                                            />
-                                            <View className='card-order-text'>
-                                                <Text>小户型日式风格</Text>
-                                            </View>
-                                        </View>
-                                    </View>
 
-                                    <View className='card-item'>
-                                        <View className='card-order'>
-                                            <Image
-                                                className='order-img'
-                                                style='width: 300rpx;height: 100px;'
-                                                src='//qniyong.oss-cn-hangzhou.aliyuncs.com/1688/web/img/cyb/f1.png'
-                                            />
-                                            <View className='card-order-text'>
-                                                <Text>小户型日式风格</Text>
-                                            </View>
-                                        </View>
-                                        <View className='card-order'>
-                                            <Image
-                                                className='order-img'
-                                                style='width: 300rpx;height: 100px;'
-                                                src='//qniyong.oss-cn-hangzhou.aliyuncs.com/1688/web/img/cyb/f1.png'
-                                            />
-                                            <View className='card-order-text'>
-                                                <Text>小户型日式风格</Text>
-                                            </View>
-                                        </View>
-                                    </View>
-
-                                    <View className='card-item'>
-                                        <View className='card-order'>
-                                            <Image
-                                                className='order-img'
-                                                style='width: 300rpx;height: 100px;'
-                                                src='//qniyong.oss-cn-hangzhou.aliyuncs.com/1688/web/img/cyb/f1.png'
-                                            />
-                                            <View className='card-order-text'>
-                                                <Text>小户型日式风格</Text>
-                                            </View>
-                                        </View>
-                                        <View className='card-order'>
-                                            <Image
-                                                className='order-img'
-                                                style='width: 300rpx;height: 100px;'
-                                                src='//qniyong.oss-cn-hangzhou.aliyuncs.com/1688/web/img/cyb/f1.png'
-                                            />
-                                            <View className='card-order-text'>
-                                                <Text>小户型日式风格</Text>
-                                            </View>
-                                        </View>
-                                    </View>
-                                </View>
-                            </ScrollView>
-                        </AtTabsPane>
-                        <AtTabsPane current={this.state.current} index={1}>
-                            <ScrollView style='padding: 100px 50px;background-color: #FAFBFC;text-align: center;'>标签页二的内容</ScrollView>
-                        </AtTabsPane>
-                        <AtTabsPane current={this.state.current} index={2}>
-                            <ScrollView style='padding: 100px 50px;background-color: #FAFBFC;text-align: center;'>标签页三的内容</ScrollView>
-                        </AtTabsPane>
-                    </AtTabs>
+                <View className='footer-fixed-area'>
+                    <Button className='footer-button' onClick={this.phone}>联系咨询</Button>
                 </View>
+
             </View>
         )
     }

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { getCurrentInstance } from '@tarojs/taro'
-import cardList from '../../assets/constant.jsx';
-import { View, Text, Image, Button } from '@tarojs/components'
+import { View, Text, Button } from '@tarojs/components'
 import './index.scss'
 
 export default class Detail extends Component {
@@ -10,29 +9,9 @@ export default class Detail extends Component {
 
     }
     componentWillMount() {
-        this.imgList = [];
 
-    }
-
-    phone = () => {
-        wx.makePhoneCall({
-
-            phoneNumber: '18874731188',
-
-        })
     }
     showdir = () => {
-
-        // const location = JSON.stringify({
-        //     latitude: 39.89631551,
-        //     longitude: 116.323459711
-        // });
-        // const category = '生活服务,娱乐休闲';
-        //
-        // wx.navigateTo({
-        //     url: 'plugin://chooseLocation/index?key=' + key + '&referer=' + referer + '&location=' + location + '&category=' + category
-        // });
-
 
         // let plugin = requirePlugin('routePlan');
         const key = 'ZVDBZ-IBFR5-YPBI2-QX2S7-5I6MJ-VPBP5'; //使用在腾讯位置服务申请的key
@@ -51,80 +30,29 @@ export default class Detail extends Component {
     render () {
 
         return (
-            <View className='home'>
-                <View className='list-item head'>
-                    <View className='logo'>
-                        <Image mode='widthFix' className='logo-img' src='//qniyong.oss-cn-hangzhou.aliyuncs.com/1688/web/img/cyb/logo.jpeg'/>
+            <View className='home-com-desc'>
+                <View className='desc'>
+                    <View className='item'>
+                        <Text>叁零设计工程有限公司成立于2008年，专注于为中国精英阶层提供“有机整体住宅装饰”解决方案，形成独特的涵盖住宅装饰设计、半包施工、主材代理方案。</Text>
                     </View>
-                    <View className='logo-detail'>
-                        <View>
-                            <Text>叁零装饰</Text>
-                        </View>
-                        <View>
-                            <Text className='slogo-desc'>身为设计师，我们肩负两种责任：对客户，以及对社会的责任</Text>
-                        </View>
+                    <View className='item'>
+                        <Text>30装饰使命：</Text>
+                        <Text className='item-h'>装饰空间  筑就温度</Text>
                     </View>
-                    <View className='logo-svg'>
-                        <Text className='iconfont iconiconfontjiantou3'/>
+                    <View className='item'>
+                        <Text>核心价值观：</Text>
+                        <Text className='item-h'>不诚不行  不信不立</Text>
                     </View>
-                </View>
-                <View className='list-item'>
-                    <View className='icon'>
-                        <Text className='iconfont icongongsi'/>
+                    <View className='item'>
+                        <Text>30装饰愿景：</Text>
+                        <Text className='item-h'>培养具有创造专业品质家装和敢说实话的匠人</Text>
                     </View>
-                    <View className='detail'>
-                        <Text>公司简介</Text>
-                    </View>
-                    <View className='logo-svg'>
-                        <Text className='iconfont iconiconfontjiantou3'/>
-                    </View>
-                </View>
 
-                <View className='list-item'>
-                    <View className='icon'>
-                        <Text className='iconfont iconnongchanpin'/>
-                    </View>
-                    <View className='detail'>
-                        <Text>助农产品</Text>
-                    </View>
-                    <View className='logo-svg'>
-                        <Text className='iconfont iconiconfontjiantou3'/>
-                    </View>
                 </View>
-
-                <View className='list-item'>
-                    <View className='icon'>
-                        <Text className='iconfont iconjingxuan'/>
-                    </View>
-                    <View className='detail'>
-                        <Text>3 0 精选</Text>
-                    </View>
-                    <View className='logo-svg'>
-                        <Text className='iconfont iconiconfontjiantou3'/>
-                    </View>
-                </View>
-
-                <View className='list-item' onClick={this.showdir}>
-                    <View className='icon'>
-                        <Text className='iconfont icondizhi'/>
-                    </View>
-                    <View className='detail'>
-                        <Text>地址导览</Text>
-                    </View>
-                    <View className='logo-svg'>
-                        <Text className='iconfont iconiconfontjiantou3'/>
-                    </View>
-                </View>
-
-                <View className='list-item'>
-                    <View className='icon'>
-                        <Text className='iconfont iconjiaofangyanshou'/>
-                    </View>
-                    <View className='detail'>
-                        <Text>验房预约</Text>
-                    </View>
-                    <View className='logo-svg'>
-                        <Text className='iconfont iconiconfontjiantou3'/>
+                <View className='desc'>
+                    <View className='item' onClick={this.showdir}>
+                        <Text>公司地址：</Text>
+                        <Text className='item-h'>银河系太阳系地球村中华人民共和国湖南省长沙市雨花区喜盈门范城C座8楼（地下停车场9号电梯上8楼）</Text>
                     </View>
                 </View>
             </View>

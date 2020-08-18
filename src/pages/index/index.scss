@@ -1,0 +1,129 @@
+@import "~taro-ui/dist/style/components/drawer.scss";
+@import "~taro-ui/dist/style/components/list.scss";
+page{
+    width: 100%;
+    overflow-y: hidden;
+    background-color: #FAFBFC;
+}
+.index{
+    background-color: #FAFBFC;
+    width: 100%;
+    .drawer-active{
+        color: #04BE02;
+    }
+    .head-no{
+        opacity:0 !important;
+        height:0 !important;
+        margin:0 !important;
+    }
+    .head{
+        transition: 500ms all;
+        opacity:1;
+
+        height: 300rpx;
+        margin: 20rpx;
+        .test-h{
+            height: 300rpx;
+        }
+        .demo-text{
+            border-radius: 20rpx;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 300rpx;
+        }
+        .demo-img{
+            border-radius: 20rpx;
+        }
+        .d-1{
+            border-radius: 20rpx;
+        }
+        .d-2{
+            border-radius: 20rpx;
+        }
+        .d-3{
+            border-radius: 20rpx;
+        }
+    }
+    .content{
+        background-color: #E4E4E4;
+        .srollview{
+
+        }
+    }
+    .at-tabs{
+        width: 100%;
+        min-height: 50rpx;
+        padding: 12rpx 0 6rpx;
+        background-color: #ffffff;
+        display: flex;
+        justify-content: space-around;
+        position: relative;
+        .at-tabs-item{
+            padding: 6rpx 12rpx;
+            flex: 1;
+        }
+        .at-tabs-item:first-child{
+            color: red;
+            text-align:right;
+        }
+        .at-tas-text{
+            color: #333;
+            max-width: 200rpx;
+            font-size: 28rpx;
+            line-height: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            -o-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+            .iconfont{
+                font-size: 24rpx;
+                color: #999;
+            }
+
+        }
+    }
+    .card{
+        margin: 20rpx 0;
+        display: flex;
+        flex-direction: column;
+        .card-item-empty{
+            justify-content: center;
+            align-items: center;
+            margin-top:20%;
+            display: flex;
+            .empty-text{
+                font-size: 36rpx;
+                color: #999999;
+            }
+        }
+        .card-item{
+            margin-bottom: 40rpx;
+            display: flex;
+            justify-content: space-around;
+            .card-order{
+                display: flex;
+                flex-direction: column;
+                .order-img{
+                    border-top-left-radius: 10rpx;
+                    border-top-right-radius: 10rpx;
+                    width: 350rpx;
+                    height: 280rpx;
+                }
+                .card-order-text{
+                    padding: 10rpx;
+                    font-size: 28rpx;
+                    color: #999999;
+                    //height: 60rpx;
+                    background-color: #ffffff;
+                }
+            }
+            .card-order-empty{
+                width: 350rpx;
+                height: 280rpx;
+            }
+
+        }
+    }
+
+}
